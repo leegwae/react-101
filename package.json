@@ -5,9 +5,9 @@
   "main": "index.html",
   "scripts": {
     "prebuild": "rm -rf dist",
-    "build": "bunx babel src --out-dir dist --presets @babel/preset-react",
-    "dev": "bun run build && bun --port 3000 --serve .",
-    "start": "bun run dev"
+    "build": "pnpx babel src --out-dir dist --presets @babel/preset-react",
+    "dev": "pnpm run build && pnpx serve . -p 3000",
+    "start": "pnpm run dev"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -16,9 +16,10 @@
   "devDependencies": {
     "@babel/cli": "^7.23.0",
     "@babel/core": "^7.23.0",
-    "@babel/preset-react": "^7.22.0"
+    "@babel/preset-react": "^7.22.0",
+    "serve": "^14.2.0"
   },
-  "keywords": ["react", "counter", "babel", "no-build-tools"],
+  "keywords": ["react", "counter", "babel", "no-build-tools", "pnpm"],
   "author": "",
   "license": "MIT"
 }
