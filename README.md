@@ -1,25 +1,25 @@
 # React Counter App
 
-빌드 도구 없이 Babel만 사용한 간단한 React 카운터 애플리케이션입니다. (bun 사용)
+빌드 도구 없이 Babel만 사용한 간단한 React 카운터 애플리케이션입니다. (pnpm 사용)
 
 ## 설치 및 실행
 
 1. 의존성 설치:
 
 ```bash
-bun install
+pnpm install
 ```
 
 2. JSX 파일을 JavaScript로 트랜스파일:
 
 ```bash
-bun run build
+pnpm run build
 ```
 
-3. 브라우저에서 `index.html` 파일을 열어서 확인:
+3. 개발 서버 실행:
 
 ```bash
-bun start
+pnpm start
 ```
 
 또는 직접 `index.html` 파일을 브라우저에서 열어도 됩니다.
@@ -42,6 +42,7 @@ bun start
 - **`@babel/cli`** (^7.23.0): Babel 명령줄 도구. 터미널에서 `babel` 명령어를 사용할 수 있게 해줌
 - **`@babel/core`** (^7.23.0): Babel의 핵심 엔진. 코드 변환(트랜스파일)의 실제 작업을 수행
 - **`@babel/preset-react`** (^7.22.0): JSX 문법을 일반 JavaScript로 변환하는 Babel 프리셋. React 컴포넌트의 JSX를 `React.createElement()` 호출로 변환
+- **`serve`** (^14.2.0): 정적 파일 서버. 개발 중 로컬 서버를 실행하기 위해 사용
 
 ## 특징
 
@@ -49,9 +50,11 @@ bun start
 - minify, uglify, bundle 없음
 - 트랜스파일만 수행
 - 간단한 카운터 기능
+- StackBlitz 호환 (pnpm 사용)
 
 ## 작동 원리
 
 1. `src/app.jsx`의 JSX 코드가 Babel에 의해 `dist/app.js`로 트랜스파일됨
-2. `index.html`이 트랜스파일된 `dist/app.js`를 ES 모듈로 로드
-3. React가 `#root` 엘리먼트에 카운터 컴포넌트를 렌더링
+2. `serve` 패키지로 로컬 개발 서버 실행
+3. `index.html`이 트랜스파일된 `dist/app.js`를 ES 모듈로 로드
+4. React가 `#root` 엘리먼트에 카운터 컴포넌트를 렌더링
