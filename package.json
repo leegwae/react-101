@@ -5,9 +5,10 @@
   "main": "index.html",
   "scripts": {
     "prebuild": "rm -rf dist",
-    "build": "pnpx babel src --out-dir dist --presets @babel/preset-react",
+    "build": "pnpx @babel/cli src --out-dir dist --presets @babel/preset-react",
     "dev": "pnpm run build && pnpx serve . -p 3000",
-    "start": "pnpm run dev"
+    "start": "pnpm run dev",
+    "postinstall": "pnpm uninstall babel || true"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -18,6 +19,11 @@
     "@babel/core": "^7.23.0",
     "@babel/preset-react": "^7.22.0",
     "serve": "^14.2.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "babel": "npm:@babel/cli@^7.23.0"
+    }
   },
   "keywords": ["react", "counter", "babel", "no-build-tools", "pnpm"],
   "author": "",
